@@ -1,10 +1,17 @@
 import express from "express";
-import { login, logout, singup } from "../controllers/auth.controllers.js";
+import {
+  login,
+  logout,
+  singup,
+  refreshToken,
+} from "../controllers/auth.controllers.js";
 
 const router = express.Router();
 
-router.get("/signup", singup);
-router.get("/login", login);
-router.get("/logout", logout);
+router.post("/signup", singup);
+router.post("/login", login);
+router.post("/logout", logout);
+router.post("/refresh-token", refreshToken);
+router.get("/profile", getProfile);
 
 export default router;
