@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { useUserStore } from "../stores/useUserStore";
 const Navbar = () => {
   const { user, logout } = useUserStore();
-  console.log(user);
-
   const isAdmin = user?.role === "admin";
+
   return (
     <header
       className="fixed top-0 left-0 w-full bg-yellow-200 bg-opacity-90 backdrop-blur-md
@@ -47,7 +46,7 @@ const Navbar = () => {
             )}
             {isAdmin && (
               <Link
-                to="/admin"
+                to={"/secret-dashboard"}
                 className="bg-yellow-500 text-black hover:text-white 
               border border-transparent hover:border hover:border-black
               px-3 py-1 rounded-md font-medium transition duration-300 ease-in-out flex items-center"
