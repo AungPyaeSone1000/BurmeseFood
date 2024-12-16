@@ -12,7 +12,6 @@ const categories = [
   "Drinks",
 ];
 
-
 const loading = false;
 
 const CreateProductForm = () => {
@@ -28,7 +27,22 @@ const CreateProductForm = () => {
     e.preventDefault();
     console.log(newProduct);
   };
-  
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setNewProduct({
+          ...newProduct,
+          image: reader.result,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <motion.div
       className="bg-white shadow-lg rounded-lg p-8 mt-8 max-w-xl mx-auto"
@@ -130,13 +144,13 @@ const CreateProductForm = () => {
           <input
             type="file"
             id="image"
-            // onChange={handleImageChange}
+            onChange={handleImageChange}
             className="sr-only"
             accept="image/*"
           />
           <label
             htmlFor="image"
-            className="cursor-pointer w-full flex justify-center py-2 px-4 border border-transparent 
+            className="cursor-pointer flex justify-center py-2 px-4 border border-transparent 
 			rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600
 		  hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2
           focus:ring-emerald-500"
@@ -145,7 +159,7 @@ const CreateProductForm = () => {
             Upload Image
           </label>
           {newProduct.image && (
-            <span className="ml-3 text-sm text-black">{newProduct.image}</span>
+            <span className="ml-3 text-sm text-gray-600">Image Uploaded</span>
           )}
         </div>
         <button
