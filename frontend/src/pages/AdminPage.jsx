@@ -22,7 +22,7 @@ const AdminPage = () => {
   }, [fetchAllProduct]);
 
   return (
-    <div className="min-h-screen gb-gray-100 text-gray-900 relative overflow-hidden">
+    <div className="min-h-screen  text-gray-900 relative overflow-hidden">
       <div className="relative z-10 container mx-auto px-4 py-6">
         <motion.h1
           className="text-center text-4xl  font-bold text-emerald-600 mb-8"
@@ -43,7 +43,6 @@ const AdminPage = () => {
                   : "bg-white text-gray-900 hover:bg-gray-200"
               } `}
             >
-              {" "}
               <tab.icon className="mr-2 h-5 w-5" />
               {tab.label}
             </button>
