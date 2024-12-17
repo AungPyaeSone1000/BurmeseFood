@@ -48,8 +48,9 @@ const ProductsList = () => {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
-          {products.map((product) => (
-            <tr key={product.id} className="bg-white hover:bg-gray-50">
+          {products?.map((product) => (
+            
+            <tr key={product._id} className="bg-white hover:bg-gray-50">
               <td className="px-6 py-4 whitespace-nowrap">
                 <div className="flex items-center">
                   <div className="flex-shrink-0 h-10 w-10">
@@ -76,26 +77,27 @@ const ProductsList = () => {
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <button
-                  onClick={() => toggleFeaturedProduct(product.id)}
+                  onClick={() => toggleFeaturedProduct(product._id)}
                   className={`p-1 rounded-full ${
-                    product.featured
+                    product.isFeatured
                       ? "bg-yellow-400 text-white"
                       : "bg-gray-300 text-gray-700"
-                  } hover:bg-yellow-500 transition-colors duration-200`}
+                  } hover:bg-yellow-500`}
                 >
                   <Star className="w-5 h-5" />
                 </button>
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <button
-                  onClick={() => deleteProduct(product.id)}
+                  onClick={() => deleteProduct(product._id)}
                   className="text-red-500 hover:text-red-300"
                 >
                   <Trash className="w-5 h-5" />
                 </button>
               </td>
             </tr>
-          ))}
+          )
+          )}
         </tbody>
       </table>
     </motion.div>
