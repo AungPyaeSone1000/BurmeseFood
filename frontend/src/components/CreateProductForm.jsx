@@ -3,14 +3,15 @@ import { motion } from "framer-motion";
 import { PlusCircle, Upload, Loader } from "lucide-react";
 import { useProductStore } from "../stores/useProductStore";
 
+//Capitalize the first letter of each word
 const categories = [
-  "Noodles",
-  "Curry",
-  "Salads",
-  "Soups",
-  "Sides",
-  "Snacks",
-  "Drinks",
+  "noodles",
+  "curry",
+  "salads",
+  "soups",
+  "sides",
+  "snacks",
+  "drinks",
 ];
 
 const CreateProductForm = () => {
