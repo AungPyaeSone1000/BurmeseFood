@@ -38,12 +38,14 @@ const Navbar = () => {
                   size={20}
                 />
                 <span className="hidden sm:inline">Cart</span>
-                <span
-                  className="absolute -top-2 -left-2 text-xs bg-yellow-400 text-black rounded-full px-2 py-0.5 
+                {cart.length > 0 && (
+                  <span
+                    className="absolute -top-2 -left-2 text-xs bg-yellow-400 text-black rounded-full px-2 py-0.5 
               transition-colors duration-300 ease-in-out group-hover:bg-yellow-500"
-                >
-                {cart.length}
-                </span>
+                  >
+                    {cart.length}
+                  </span>
+                )}
               </Link>
             )}
             {isAdmin && (
