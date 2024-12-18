@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useCartStore } from "../stores/useCartStore";
 import { motion } from "framer-motion";
-import { ShoppingCart } from "lucide-react";
+import {  ShoppingCart } from "lucide-react";
 
 import CartItem from "../components/CartItem";
 import PeopleAlsoBought from "../components/PeopleAlsoBought";
 import OrderSummary from "../components/OrderSummary";
+import GiftCouponCard from "../components/GiftCouponCard";
+
 
 const CartPage = () => {
   const { cart } = useCartStore();
@@ -38,6 +40,7 @@ const CartPage = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
                 <OrderSummary/>
+                <GiftCouponCard/>
             </motion.div>
           )}
         </div>
