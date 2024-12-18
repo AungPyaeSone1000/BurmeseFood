@@ -22,6 +22,7 @@ export const createChceckoutSession = async (req, res) => {
           },
           unit_amount: amount,
         },
+        quantity: product.quantity || 1,
       };
     });
 
@@ -34,7 +35,7 @@ export const createChceckoutSession = async (req, res) => {
       });
       if (coupon) {
         totalAmount -= Math.round(
-          totalAmount * (coupon.discountPercentage / 100)
+          (totalAmount * coupon.discountPercentage) / 100
         );
       }
     }
@@ -80,7 +81,7 @@ async function CreatestripeCoupon(discountPercentage) {
 
 async function createNewCoupone(userId) {
   const newCoupon = new Coupon({
-    code: "GIFT" + Math.random().toString(36).substring(2, 9).upperCase(),
+    code: "GIFT" + Math.random().toString(36).substring(2, 9).toUpperCase(),
     discountPercentage: 10,
     expirationDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), //30 days
     isActive: true,
@@ -118,13 +119,11 @@ export const checkoutSuccess = async (req, res) => {
       });
 
       await newOrder.save();
-      res
-        .status(200)
-        .json({
-          success: true,
-          message: "Order created successfully",
-          orderId: newOrder._id,
-        });
+      res.status(200).json({
+        success: true,
+        message: "Order created successfully",
+        orderId: newOrder._id,
+      });
     }
   } catch (error) {
     console.log("Checkout success error", error.message);
