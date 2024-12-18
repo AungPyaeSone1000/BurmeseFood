@@ -43,8 +43,8 @@ export const createChceckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `${process.env.CLIENT_URL}/phurchase-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.CLIENT_URL}/phurchase-cancel`,
+      success_url: `${process.env.CLIENT_URL}/purchase-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.CLIENT_URL}/purchase-cancel`,
       discounts: coupon
         ? [{ coupon: await CreatestripeCoupon(coupon.discountPercentage) }]
         : [],
@@ -53,7 +53,7 @@ export const createChceckoutSession = async (req, res) => {
         couponCode: couponCode || "",
         products: JSON.stringify(
           products.map((product) => ({
-            id: product.id,
+            id: product._id,
             quantity: product.quantity,
             price: product.price,
           }))
@@ -93,8 +93,8 @@ async function createNewCoupone(userId) {
 
 export const checkoutSuccess = async (req, res) => {
   try {
-    const { session_id } = req.body;
-    const session = await stripe.checkout.sessions.retrieve(session_id);
+    const { sessionId } = req.body;
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
     if (session.payment_status === "paid") {
       if (session.metadata.couponCode) {
         await Coupon.findOneAndUpdate(
@@ -115,7 +115,7 @@ export const checkoutSuccess = async (req, res) => {
           price: product.price,
         })),
         totalAmount: session.amount_total / 100,
-        stripeSessionId: session_id,
+        stripeSessionId: sessionId,
       });
 
       await newOrder.save();
