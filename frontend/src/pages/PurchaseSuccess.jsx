@@ -2,15 +2,16 @@ import { CheckCircle, ArrowRight, HandHeart } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../stores/useCartStore";
+import Confetti from "react-confetti";
 import axios from "../lib/axios";
 const PurchaseSuccess = () => {
   const [processing, setProcessing] = useState(true);
   const [error, setError] = useState(null);
   const { clearCart } = useCartStore();
   useEffect(() => {
-    const handleCheckoutSuccess = async (sessionId) => {        
+    const handleCheckoutSuccess = async (sessionId) => {
       try {
-        console.log("sessionId",sessionId);
+        console.log("sessionId", sessionId);
         await axios.post("/payments/checkout-success", { sessionId });
         clearCart();
       } catch (error) {
@@ -23,7 +24,7 @@ const PurchaseSuccess = () => {
     const sessionId = new URLSearchParams(window.location.search).get(
       "session_id"
     );
-    
+
     if (sessionId) {
       handleCheckoutSuccess(sessionId);
     } else {
@@ -35,7 +36,15 @@ const PurchaseSuccess = () => {
   if (processing) return "Processing...";
   if (error) return `Error: ${error}`;
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="h-screen flex items-center justify-center px-4">
+      <Confetti
+        width={window.innerWidth}
+        height={window.innerHeight}
+        gravity={0.1}
+        style={{ zIndex: 99 }}
+        numberOfPieces={700}
+        recycle={false}
+      ></Confetti>
       <div className="max-w-md w-full bg-yellow-300 rounded-lg shadow-xl overflow-hidden relative z-10">
         <div className="p-6 sm:p-8">
           <div className="flex justify-center">
