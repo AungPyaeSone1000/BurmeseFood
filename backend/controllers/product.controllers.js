@@ -89,10 +89,8 @@ export const deleteProduct = async (req, res) => {
 export const getRecommendedProducts = async (req, res) => {
   try {
     const products = await Product.aggregate([
-      $sample(
-        { size: 3 },
-        { $projection: { _id: 1, name: 1, description: 1, image: 1, price: 1 } }
-      ),
+      { $sample: { size: 4 } },
+      { $project: { _id: 1, name: 1, description: 1, image: 1, price: 1 } },
     ]);
     res.json(products);
   } catch (error) {
