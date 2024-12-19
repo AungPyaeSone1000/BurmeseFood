@@ -11,6 +11,8 @@ import LogInPage from "./pages/LogInPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import CategoryPage from "./pages/CategoryPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
+import PurchaseSuccess from "./pages/PurchaseSuccess.jsx";
+import PurchaseCancel from "./pages/PurchaseCancel.jsx";
 
 import Navbar from "./components/Navbar.jsx";
 import LoadingSpinner from "./components/LoadingSpinner.jsx";
@@ -62,6 +64,14 @@ function App() {
           <Route
             path="/cart"
             element={user ? <CartPage /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/purchase-success"
+            element={user ? <PurchaseSuccess /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/purchase-cancel"
+            element={user ? <PurchaseCancel /> : <Navigate to="/login" />}
           />
         </Routes>
       </div>
