@@ -25,7 +25,7 @@ const LogInPage = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="mt-6 text-center text-3xl font-extrabold text-emerald-600">
-          Create your account
+          Log into your account
         </h2>
       </motion.div>
       <motion.div
@@ -105,7 +105,7 @@ const LogInPage = () => {
           </form>
 
           <p className="mt-8 text-center text-sm text-gray-600">
-            Not a mumber?{" "}
+            Not a member?{" "}
             <Link
               to="/signup"
               className="text-emerald-600 hover:text-emerald-800 font-medium"

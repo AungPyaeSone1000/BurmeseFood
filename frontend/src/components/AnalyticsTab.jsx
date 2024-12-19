@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "../lib/axios";
 import AnalyticsCard from "./AnalyticsCard.jsx";
 import { Users, Package, ShoppingCart, DollarSign } from "lucide-react";
+import LoadingSpinner from "./LoadingSpinner.jsx";
 import {
   LineChart,
   Line,
@@ -41,7 +42,7 @@ const AnalyticsTab = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   return (

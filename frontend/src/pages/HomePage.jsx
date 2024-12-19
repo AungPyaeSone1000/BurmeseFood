@@ -5,12 +5,11 @@ import { useProductStore } from "../stores/useProductStore";
 
 const categories = [
   { href: "/noodles", name: "Noodles", imageUrl: "./Noodles.jpg" },
-  { href: "/curry", name: "Curry", imageUrl: "/BurmeseTofu.jpg" },
-  { href: "/salads", name: "Salads", imageUrl: "/CoconutNoodles.jpg" },
-  { href: "/soups", name: "Soups", imageUrl: "/HtatNyat.jpg" },
-  { href: "/sides", name: "Sides", imageUrl: "/NanGyiTote.jpg" },
-  { href: "/snacks", name: "Snacks", imageUrl: "/ShanNoodles.jpg" },
-  { href: "/drinks", name: "Drinks", imageUrl: "/TeaLeafSalad.jpg" },
+  { href: "/curry", name: "Curry", imageUrl: "/EggCurry.jpg" },
+  { href: "/salads", name: "Salads", imageUrl: "/TeaLeafSalad.jpg" },
+  { href: "/sides", name: "Sides", imageUrl: "/BurmeseTofu.jpg" },
+  { href: "/snacks", name: "Snacks", imageUrl: "/HtatNyat.jpg" },
+  { href: "/drinks", name: "Drinks", imageUrl: "/Tea.jpg" },
 ];
 
 const HomePage = () => {

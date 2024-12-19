@@ -8,7 +8,6 @@ const categories = [
   "noodles",
   "curry",
   "salads",
-  "soups",
   "sides",
   "snacks",
   "drinks",
