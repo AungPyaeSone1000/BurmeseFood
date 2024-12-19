@@ -40,14 +40,14 @@ const OrderSummary = () => {
           <dl className="flex items-center justify-between gap-4">
             <dt className="text-base font-normal text-black">Original Price</dt>
             <dd className="text-base font-medium text-black">
-              {formattedSubtotal}
+              ${formattedSubtotal}
             </dd>
           </dl>
           {savings > 0 && (
             <dl className="flex items-center justify-between gap-4">
               <dt className="text-base font-normal text-black">Savings</dt>
               <dd className="text-base font-medium text-emerald-700">
-                -{formattedSavings}
+                -${formattedSavings}
               </dd>
             </dl>
           )}
@@ -57,7 +57,7 @@ const OrderSummary = () => {
                 Coupon ({coupon.code})
               </dt>
               <dd className="text-base font-medium text-emerald-700">
-                -{coupon.discountPercentage}
+                -{coupon.discountPercentage}%
               </dd>
             </dl>
           )}
