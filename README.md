@@ -4,6 +4,8 @@ A full-stack e-commerce platform for ordering authentic Burmese cuisine. The web
 and manage food orders while providing an admin panel for managing products, orders, and customers.  
 The website is accessible at [Burmese-Food-Ecommerce](https://burmese-food.onrender.com/)
 
+![Website Screenshot](frontend/public/BurmeseFoodEcommerceImage.png)
+
 ## 🌟 Features  
 
 - 🛒 **E-Commerce Core** – Product & category management  
