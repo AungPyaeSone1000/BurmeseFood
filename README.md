@@ -64,8 +64,7 @@ The server should now be running on **http://localhost:5000** (or your configure
 - 🌍 Multi-language support  
 
 ## 📝 License  
-This project is licensed under the **MIT License**.  
+This project is not licensed but please don't use it for profit.
 
 ---
 
-Would you like me to add installation steps for the frontend as well? Let me know if you need any modifications! 🚀
