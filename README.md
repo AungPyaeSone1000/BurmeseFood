@@ -4,6 +4,10 @@ A full-stack e-commerce platform for ordering authentic Burmese cuisine. The web
 and manage food orders while providing an admin panel for managing products, featuring products, and analystics of sales.  
 The website is accessible at [Burmese-Food-Ecommerce](https://burmese-food.onrender.com/)
 
+You can log in using 
+Email: ww.aps2002third@gmail.com
+Password: 12341234
+
 ![Website Screenshot](frontend/public/BurmeseFoodEcommerceImage.png)
 
 ## 🌟 Features  
